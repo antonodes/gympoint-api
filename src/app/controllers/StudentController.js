@@ -22,10 +22,9 @@ class StudentControler {
         .required(),
     });
 
-    // encontrar uma forma de ver o campo que está inválido
-    if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validations fails' });
-    }
+    await schema.validate(req.body).catch(err => {
+      return res.status(400).json({ error: err.message });
+    });
 
     const studentExists = await Student.findOne({
       where: { email: req.body.email },
@@ -63,9 +62,9 @@ class StudentControler {
       height: Yup.number().required(),
     });
 
-    if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validations fails' });
-    }
+    await schema.validate(req.body).catch(err => {
+      return res.status(400).json({ error: err.message });
+    });
 
     const { email, name, age, weight, height } = req.body;
     const student = await Student.findOne({ where: { id: req.params.id } });
