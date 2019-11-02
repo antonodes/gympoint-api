@@ -18,5 +18,5 @@ Conceitos aprendidos:
   <li>Containers com Docker</li>
   <li>Sequelize e Migrations para automatizar SQL</li>
   <li>Validação de dados com YUP</li>
-  <li><Configuração de webpack, eslint e babel/li>
+  <li><Configuração de webpack, eslint e babel</li>
 </ul>
