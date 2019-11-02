@@ -6,7 +6,7 @@ Este projeto é um gerenciador de academia. Faz parte do desafio do Bootcamp GoS
 
 Tecnologias utilizadas: Nodejs, React.js e ReactNative.
 
-Funcionalidades desenvolvidas:
+Conceitos aprendidos:
 
 <ul>
   <li>Arquitetura MVC</li>
@@ -18,4 +18,5 @@ Funcionalidades desenvolvidas:
   <li>Containers com Docker</li>
   <li>Sequelize e Migrations para automatizar SQL</li>
   <li>Validação de dados com YUP</li>
+  <li><Configuração de webpack, eslint e babel/li>
 </ul>
