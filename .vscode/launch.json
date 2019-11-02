@@ -8,7 +8,7 @@
       "type": "node",
       "request": "attach",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/index.js"
+      "program": "${workspaceFolder}/server.js"
     }
   ]
 }
