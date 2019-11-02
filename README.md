@@ -15,6 +15,7 @@ Funcionalidades desenvolvidas:
   <li>Envio de e-mail com MailTrap</li>
   <li>Formatação de datas com date-fns</li>
   <li>Execução em fila para melhora de performace</li>
+  <li>Containers com Docker</li>
   <li>Sequelize e Migrations para automatizar SQL</li>
   <li>Validação de dados com YUP</li>
 </ul>
