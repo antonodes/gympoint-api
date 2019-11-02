@@ -4,6 +4,7 @@ import SessionController from './app/controllers/SessionController';
 import StudentController from './app/controllers/StudentController';
 import PlanController from './app/controllers/PlanController';
 import RegistrationController from './app/controllers/RegistrationController';
+import CheckinController from './app/controllers/CheckinController';
 
 import auth from './app/middlewares/auth';
 
@@ -11,7 +12,11 @@ const routes = new Router();
 
 routes.post('/users', SessionController.store);
 
-routes.use(auth);
+routes.use(auth.autenticator);
+
+routes.post('/students/:student_id/checkins', CheckinController.store);
+
+routes.use(auth.checkProvider);
 
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
