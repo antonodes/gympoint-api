@@ -5,6 +5,7 @@ import Plan from '../models/Plan';
 import Student from '../models/Student';
 
 import Registration from '../models/Registration';
+import Mail from '../../lib/Mail';
 
 class RegistrationController {
   async store(req, res) {
@@ -57,6 +58,12 @@ class RegistrationController {
       start_date: startDate,
       end_date: endDate,
       price: planPrice * planDuration,
+    });
+
+    await Mail.sendMail({
+      to: `${checkStudentExists.name} <${checkStudentExists.email}>`,
+      subject: 'Benvindo ao GymPoint!',
+      text: 'Sua matrícula foi registrada com sucesso!',
     });
 
     return res.json(registration);
