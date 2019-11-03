@@ -97,7 +97,12 @@ class HelpOrderController {
     await Mail.sendMail({
       to: `${helporder.student.name} <${helporder.student.email}>`,
       subject: 'Sua pergunta foi respondida',
-      text: 'Aee caralho sua pergunta foi respondida!',
+      template: 'helporder',
+      context: {
+        student_name: helporder.student.name,
+        question: helporder.question,
+        answer: helporder.answer,
+      },
     });
 
     return res.json(helporder);
