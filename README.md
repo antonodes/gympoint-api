@@ -13,6 +13,7 @@ Conceitos aprendidos:
   <li>Token rolante com JWT</li>
   <li>Midlewares para gerenciar usuários autenticados</li>
   <li>Envio de e-mail com MailTrap</li>
+  <li>Template de e-mails com HandleBars</li>
   <li>Formatação de datas com date-fns</li>
   <li>Execução em fila para melhora de performace</li>
   <li>Containers com Docker</li>
