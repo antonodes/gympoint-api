@@ -1,9 +1,29 @@
 import * as Yup from 'yup';
-
+import { Op } from 'sequelize';
 import User from '../models/User';
 import Student from '../models/Student';
 
 class StudentControler {
+  async index(req, res, next) {
+    const { name } = req.query;
+    let response;
+
+    if (name) {
+      const query = `%${name}%`;
+      response = await Student.findOne({
+        where: { name: { [Op.like]: query } },
+      });
+    } else {
+      response = await Student.findAll();
+    }
+
+    if (response) {
+      return res.json(response);
+    }
+
+    return res.status(400).json({ error: `Not found user(s)` });
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),

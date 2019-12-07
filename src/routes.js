@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import { next } from 'sucrase/dist/parser/tokenizer';
 import SessionController from './app/controllers/SessionController';
 import StudentController from './app/controllers/StudentController';
 import PlanController from './app/controllers/PlanController';
@@ -24,6 +25,7 @@ routes.post('/students/:student_id/help-orders', HelpOrderController.store);
 
 routes.use(auth.checkProvider);
 
+routes.get('/students', StudentController.index);
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
 
