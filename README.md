@@ -4,6 +4,9 @@
 
 Este projeto é um gerenciador de academia. Faz parte do desafio final do Bootcamp GoStack #9 da Rocketseat.
 
+https://github.com/Rocketseat/bootcamp-gostack-desafio-02<br />
+https://github.com/Rocketseat/bootcamp-gostack-desafio-09
+
 Tecnologias utilizadas: Nodejs, React.js e ReactNative.
 
 Conceitos aprendidos:
