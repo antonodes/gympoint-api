@@ -4,20 +4,6 @@ import User from '../models/User';
 import Student from '../models/Student';
 
 class StudentControler {
-  async index(req, res, next) {
-    const { name } = req.query;
-    let response;
-
-    if (name) {
-      const query = `%${name}%`;
-      response = await Student.findOne({
-        where: { name: { [Op.like]: query } },
-      });
-    } else {
-      response = await Student.findAll();
-    }
-      
-      
   async searchStudents(req, res, next) {
     const { name } = req.query;
     
