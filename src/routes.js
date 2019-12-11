@@ -16,6 +16,8 @@ routes.post('/users', SessionController.store);
 
 routes.use(auth.autenticator);
 
+routes.get('/students/:id', StudentController.findByStudents);
+routes.get('/students', StudentController.findAll);
 routes.post('/students/:student_id/checkins', CheckinController.store);
 
 routes.get('/help-orders', HelpOrderController.index);
