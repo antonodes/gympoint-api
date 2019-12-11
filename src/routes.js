@@ -15,9 +15,8 @@ const routes = new Router();
 routes.post('/users', SessionController.store);
 
 routes.use(auth.autenticator);
-
-routes.get('/students/:id', StudentController.findByStudents);
-routes.get('/students', StudentController.findAll);
+// search student: FindAll or FindByStudent
+routes.get('/students', StudentController.searchStudents);
 routes.post('/students/:student_id/checkins', CheckinController.store);
 
 routes.get('/help-orders', HelpOrderController.index);
