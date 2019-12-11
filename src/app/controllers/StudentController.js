@@ -3,7 +3,37 @@ import { Op } from 'sequelize';
 import User from '../models/User';
 import Student from '../models/Student';
 
-class StudentControler {
+class StudentControler 
+    async FindAll(req, res, next) {
+    // Não precisa de tudo isso, clean code !
+    let response;
+      
+    response = await Student.findAll();
+    
+    if (response) {
+      return res.json(response);
+    }
+
+    return res.status(400).json({ error: `Not found user(s)` });
+  }
+
+  async findByStudent(req, res, next) {
+    const { name } = req.query;
+    let response;
+
+    if (name) {
+      const query = `%${name}%`;
+      response = await Student.findOne({
+        where: { name: { [Op.like]: query } },
+      });
+    } 
+    if (response) {
+      return res.json(response);
+    }
+
+    return res.status(400).json({ error: `Not found user(s)` });
+  }
+
   async index(req, res, next) {
     const { name } = req.query;
     let response;
