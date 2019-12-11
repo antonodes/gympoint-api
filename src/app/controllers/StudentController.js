@@ -3,37 +3,7 @@ import { Op } from 'sequelize';
 import User from '../models/User';
 import Student from '../models/Student';
 
-class StudentControler 
-    async FindAll(req, res, next) {
-    // Não precisa de tudo isso, clean code !
-    let response;
-      
-    response = await Student.findAll();
-    
-    if (response) {
-      return res.json(response);
-    }
-
-    return res.status(400).json({ error: `Not found user(s)` });
-  }
-
-  async findByStudent(req, res, next) {
-    const { name } = req.query;
-    let response;
-
-    if (name) {
-      const query = `%${name}%`;
-      response = await Student.findOne({
-        where: { name: { [Op.like]: query } },
-      });
-    } 
-    if (response) {
-      return res.json(response);
-    }
-
-    return res.status(400).json({ error: `Not found user(s)` });
-  }
-
+class StudentControler {
   async index(req, res, next) {
     const { name } = req.query;
     let response;
@@ -46,13 +16,22 @@ class StudentControler
     } else {
       response = await Student.findAll();
     }
-
-    if (response) {
-      return res.json(response);
+      
+      
+  async searchStudents(req, res, next) {
+    const { name } = req.query;
+    
+    if(name) {
+        return await findByName(name);
     }
-
-    return res.status(400).json({ error: `Not found user(s)` });
+        return await findAll();
   }
+  
+  //metodo que vai chamar o serviço para buscar todos os estudantes
+  async findAll() {}
+      
+   //metodo que vai chamar o serviço para buscar todos os estudantes com aquele nome
+  async findAll() {}
 
   async store(req, res) {
     const schema = Yup.object().shape({
