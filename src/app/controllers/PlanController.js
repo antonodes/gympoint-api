@@ -45,7 +45,7 @@ class PlanController {
     if (!plans) {
       return res.status(400).json({ error: 'Plans not found.' });
     }
-    return res.json({ plans });
+    return res.json(plans);
   }
 
   async update(req, res) {

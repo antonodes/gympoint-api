@@ -98,7 +98,7 @@ class RegistrationController {
     if (!registrations) {
       return res.status(400).json({ error: 'Registrations not found.' });
     }
-    return res.json({ registrations });
+    return res.json(registrations);
   }
 
   async update(req, res) {
